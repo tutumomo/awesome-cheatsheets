@@ -6,39 +6,39 @@
  */
 class NormalClass extends AbstractClassName implements InterfaceName
 {
-    // 引用 Trait (为 PHP 提供多继承的能力，可理解为代码复制)
+    // 引用 Trait (為 PHP 提供多繼承的能力，可理解為代碼複製)
     use TraitName;
 
-    // --> 类属性类型 <--
+    // --> 類屬性類型 <--
 
     /**
-     * 公有的类成员可以在任何地方被访问，会被继承。
+     * 公有的類成員可以在任何地方被訪問，會被繼承。
      * @var Type
      */
     public $property;
 
     /**
-     * 私有的类成员则只能被其定义所在的类访问，不会被继承。
+     * 私有的類成員則只能被其定義所在的類訪問，不會被繼承。
      * @var Type
      */
     private $property;
 
     /**
-     * 受保护的类成员则可以被其自身以及其子类和父类访问，会被继承。
+     * 受保護的類成員則可以被其自身以及其子類和父類訪問，會被繼承。
      * @var Type
      */
     protected $property;
 
     /**
-     * 静态变量，也被称为类变量，所有对象的变量都是同一个。
+     * 靜態變量，也被稱為類變量，所有對象的變量都是同一個。
      * @var Type
      */
     static $property;
 
-    // --> 方法类型 <--
+    // --> 方法類型 <--
 
     /**
-     * 公共方法，任何对象都能访问。
+     * 公共方法，任何對象都能訪問。
      * @param Type
      * @return Type
      */
@@ -47,7 +47,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 私有方法，只有对象自身可以访问。
+     * 私有方法，只有對象自身可以訪問。
      * @param Type
      * @return Type
      */
@@ -56,7 +56,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 保护方法，只有自身和子类可以访问。
+     * 保護方法，只有自身和子類可以訪問。
      * @param Type
      * @return Type
      */
@@ -65,7 +65,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
     
     /**
-     * 静态方法，可以在不实例化类的情况下执行。
+     * 靜態方法，可以在不實例化類的情況下執行。
      * @param Type
      * @return Type
      */
@@ -73,10 +73,10 @@ class NormalClass extends AbstractClassName implements InterfaceName
     {
     }
 
-    // --> 魔术方法 <--
+    // --> 魔術方法 <--
 
     /**
-     * 具有构造函数的类会在每次创建新对象时先调用此方法，所以非常适合在使用对象之前做一些初始化工作。
+     * 具有構造函數的類會在每次創建新對像時先調用此方法，所以非常適合在使用對像之前做一些初始化工作。
      * http://php.net/manual/zh/language.oop5.decon.php
      * @param Type
      * @return void
@@ -86,7 +86,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 析构函数会在到某个对象的所有引用都被删除或者当对象被显式销毁时执行。
+     * 析構函數會在到某個對象的所有引用都被刪除或者當對像被顯式銷毀時執行。
      * http://php.net/manual/zh/language.oop5.decon.php
      * @return void
      */
@@ -95,7 +95,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 在给不可访问属性赋值时，__set() 会被调用。
+     * 在給不可訪問屬性賦值時，__set() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @param mixed value
@@ -106,7 +106,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 读取不可访问属性的值时，__get() 会被调用。
+     * 讀取不可訪問屬性的值時，__get() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @return mixed
@@ -116,7 +116,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 当对不可访问属性调用 isset() 或 empty() 时，__isset() 会被调用。
+     * 當對不可訪問屬性調用 isset() 或 empty() 時，__isset() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @return bool
@@ -126,7 +126,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 当对不可访问属性调用 unset() 时，__unset() 会被调用。
+     * 當對不可訪問屬性調用 unset() 時，__unset() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @return void
@@ -136,7 +136,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 在对象中调用一个不可访问方法时，__call() 会被调用。
+     * 在對像中調用一個不可訪問方法時，__call() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @param array arguments
@@ -147,7 +147,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 在静态上下文中调用一个不可访问方法时，__callStatic() 会被调用。
+     * 在靜態上下文中調用一個不可訪問方法時，__callStatic() 會被調用。
      * http://php.net/manual/zh/language.oop5.overloading.php
      * @param string name
      * @param array arguments
@@ -158,10 +158,10 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * serialize() 函数会检查类中是否存在一个魔术方法 __sleep()。
-     * 如果存在，该方法会先被调用，然后才执行序列化操作。此功能可以用于清理对象，
-     * 并返回一个包含对象中所有应被序列化的变量名称的数组。
-     * 如果该方法未返回任何内容，则 NULL 被序列化，并产生一个 E_NOTICE 级别的错误。
+     * serialize() 函數會檢查類中是否存在一個魔術方法 __sleep()。
+     * 如果存在，該方法會先被調用，然後才執行序列化操作。此功能可以用於清理對象，
+     * 並返回一個包含對像中所有應被序列化的變量名稱的數組。
+     * 如果該方法未返回任何內容，則 NULL 被序列化，並產生一個 E_NOTICE 級別的錯誤。
      * http://php.net/manual/zh/language.oop5.magic.php#object.sleep
      * @return array
      */
@@ -170,8 +170,8 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 与之相反，unserialize() 会检查是否存在一个 __wakeup() 方法。
-     * 如果存在，则会先调用 __wakeup 方法，预先准备对象需要的资源。
+     * 與之相反，unserialize() 會檢查是否存在一個 __wakeup() 方法。
+     * 如果存在，則會先調用 __wakeup 方法，預先準備對像需要的資源。
      * http://php.net/manual/zh/language.oop5.magic.php#object.wakeup
      * @return void
      */
@@ -180,9 +180,9 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * __toString() 方法用于一个类被当成字符串时应怎样回应。
-     * 例如 echo $obj; 应该显示些什么。此方法必须返回一个字符串，
-     * 否则将发出一条 E_RECOVERABLE_ERROR 级别的致命错误。
+     * __toString() 方法用於一個類被當成字符串時應怎樣回應。
+     * 例如 echo $obj; 應該顯示些什麼。此方法必須返回一個字符串，
+     * 否則將發出一條 E_RECOVERABLE_ERROR 級別的致命錯誤。
      * http://php.net/manual/zh/language.oop5.magic.php#object.tostring
      * @return string
      */
@@ -191,7 +191,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 当尝试以调用函数的方式调用一个对象时，__invoke() 方法会被自动调用。
+     * 當嘗試以調用函數的方式調用一個對像時，__invoke() 方法會被自動調用。
      * http://php.net/manual/zh/language.oop5.magic.php#object.invoke
      * @param Type
      * @return mixed
@@ -201,7 +201,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 自 PHP 5.1.0 起当调用 var_export() 导出类时，此静态 方法会被调用。
+     * 自 PHP 5.1.0 起當調用 var_export() 導出類時，此靜態 方法會被調用。
      * http://php.net/manual/zh/language.oop5.magic.php#object.set-state
      * @param array properties
      * @return object
@@ -211,7 +211,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
     }
 
     /**
-     * 在使用 var_dump() 时，会被调用。
+     * 在使用 var_dump() 時，會被調用。
      * http://php.net/manual/zh/language.oop5.magic.php#object.debuginfo
      * @return array
      */
@@ -223,7 +223,7 @@ class NormalClass extends AbstractClassName implements InterfaceName
 
 /**
  * 接口
- * 任何实现接口的类，都必须实现接口中的方法。
+ * 任何實現接口的類，都必須實現接口中的方法。
  */
 interface InterfaceName
 {
@@ -233,14 +233,14 @@ interface InterfaceName
 }
 
 /**
- * 抽象类
- * 抽象类中可以包含普通方法，和抽象方法。
+ * 抽像類
+ * 抽像類中可以包含普通方法，和抽像方法。
  */
 abstract class AbstractClassName
 {
 
     /**
-     * 继承本抽象类的类，必须实现抽象方法。
+     * 繼承本抽像類的類，必須實現抽像方法。
      * @param Type
      * @return Type
      */
@@ -250,7 +250,7 @@ abstract class AbstractClassName
 
 /**
  * Trait
- * 提供代码复用能力、多继承能力
+ * 提供代碼復用能力、多繼承能力
  */
 trait Logger
 {
