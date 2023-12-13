@@ -1,50 +1,50 @@
 JavaScript速查表
 ===
-- 本手册绝大部分内容是从Airbnb JavaScript Style Guide精简整理，将开发者们都明确的操作去掉，目的为了就是更快的速查。
-  此处为[源地址](https://github.com/airbnb/javascript)。
+- 本手冊絕大部分內容是從Airbnb JavaScript Style Guide精簡整理，將開發者們都明確的操作去掉，目的為了就是更快的速查。
+  此處為[源地址](https://github.com/airbnb/javascript)。
 
-- 译制：[HaleNing](https://github.com/HaleNing)
+- 譯制：[HaleNing](https://github.com/HaleNing)
 
 
 
-## 目录
-  - [基础知识](#基础知识)
-    - [类型](#类型)
+## 目錄
+  - [基礎知識](#基礎知識)
+    - [類型](#類型)
     - [引用](#引用)
-    - [对象](#对象)
-    - [数组](#数组)
-    - [解构](#解构)
+    - [對像](#對像)
+    - [數組](#數組)
+    - [解構](#解構)
     - [字符串](#字符串)
-    - [变量](#变量)
-    - [属性](#属性)
-    - [测试](#测试)
-  - [公共约束](#公共约束)
-    - [注释](#注释)
-    - [分号](#分号)
-    - [命名规范](#命名规范)
-    - [标准库](#标准库)
-  - [类与函数](#类与函数)
-    - [函数](#函数)
-    - [箭头函数](#箭头函数)
-    - [类与构造函数](#类与构造函数)
-    - [模块](#模块)
-    - [迭代器与生成器](#迭代器与生成器)
+    - [變量](#變量)
+    - [屬性](#屬性)
+    - [測試](#測試)
+  - [公共約束](#公共約束)
+    - [註釋](#註釋)
+    - [分號](#分號)
+    - [命名規範](#命名規範)
+    - [標準庫](#標準庫)
+  - [類與函數](#類與函數)
+    - [函數](#函數)
+    - [箭頭函數](#箭頭函數)
+    - [類與構造函數](#類與構造函數)
+    - [模塊](#模塊)
+    - [迭代器與生成器](#迭代器與生成器)
     - [提升](#提升)
-    - [比较运算符与相等](#比较运算符与相等)
+    - [比較運算符與相等](#比較運算符與相等)
     - [事件](#事件)
-    - [类型转换与强制转换](#类型转换与强制转换)
-  - [推荐资源](#推荐资源)
+    - [類型轉換與強制轉換](#類型轉換與強制轉換)
+  - [推薦資源](#推薦資源)
 
 
 
 
-## 基础知识
+## 基礎知識
 
 
-### 类型
+### 類型
 
-- 基本类型
-  **最新的 ECMAScript 标准定义了 8 种数据类型,分别是**
+- 基本類型
+  **最新的 ECMAScript 標準定義了 8 種數據類型,分別是**
   - `string`
   - `number`
   - `bigint`
@@ -52,12 +52,12 @@ JavaScript速查表
   - `null`
   - `undefined`
   - `symbol` (ECMAScript 2016新增)
-> 所有基本类型的值都是不可改变的。但需要注意的是，基本类型本身和一个赋值为基本类型的变量的区别。变量会被赋予一个新值，而原值不能像数组、对象以及函数那样被改变。
-- 引用类型
-  - `Object`（包含普通对象-Object，数组对象-Array，正则对象-RegExp，日期对象-Date，数学函数-Math，函数对象-Function）
+> 所有基本類型的值都是不可改變的。但需要注意的是，基本類型本身和一個賦值為基本類型的變量的區別。變量會被賦予一個新值，而原值不能像數組、對像以及函數那樣被改變。
+- 引用類型
+  - `Object`（包含普通對像-Object，數組對像-Array，正則對像-RegExp，日期對像-Date，數學函數-Math，函數對像-Function）
 
 ```javascript
-使用 typeof 运算符检查：
+使用 typeof 運算符檢查：
 
 undefined：typeof instance === "undefined"
 Boolean：typeof instance === "boolean"
@@ -73,9 +73,9 @@ Object：typeof instance === "object"
 
 ### 引用
 
-推荐常量赋值都使用`const`, 值可能会发生改变的变量赋值都使用 `let`。
+推薦常量賦值都使用`const`, 值可能會發生改變的變量賦值都使用 `let`。
 
-> 为什么？`let`   `const` 都是块级作用域，而 `var`是函数级作用域
+> 為什麼？`let`   `const` 都是塊級作用域，而 `var`是函數級作用域
 
 ```javascript
 
@@ -95,9 +95,9 @@ if (true) {
 
 
 
-### 对象
+### 對像
 
-- 使用字面语法创建对象：
+- 使用字面語法創建對像：
 
   ```javascript
   // bad
@@ -109,7 +109,7 @@ if (true) {
 
   
 
-- 在创建具有动态属性名称的对象时使用属性名称:
+- 在創建具有動態屬性名稱的對象時使用屬性名稱:
 
   ```javascript
   
@@ -134,11 +134,11 @@ if (true) {
 
   
 
-- 属性值简写，并且推荐将缩写 写在前面 :
+- 屬性值簡寫，並且推薦將縮寫 寫在前面 :
 
   ```javascript
   const lukeSkywalker = 'Luke Skywalker';
-  //常量名就是你想设置的属性名
+  //常量名就是你想設置的屬性名
   // bad
   const obj = {
     lukeSkywalker: lukeSkywalker,
@@ -165,9 +165,9 @@ if (true) {
 
   
 
-- 不要直接调用 `Object.prototype`上的方法，如 `hasOwnProperty`、`propertyIsEnumerable`、`isPrototypeOf`
+- 不要直接調用 `Object.prototype`上的方法，如 `hasOwnProperty`、`propertyIsEnumerable`、`isPrototypeOf`
 
-  > 为什么？在一些有问题的对象上，这些方法可能会被屏蔽掉，如：`{ hasOwnProperty: false }` 或空对象 `Object.create(null)`
+  > 為什麼？在一些有問題的對象上，這些方法可能會被屏蔽掉，如：`{ hasOwnProperty: false }` 或空對像 `Object.create(null)`
 
   ```javascript
   // bad
@@ -186,25 +186,25 @@ if (true) {
 
   
 
-- 对象拷贝时，推荐使用`...`运算符来代替`Object.assign`, 获取大对象的多个属性时，也推荐使用`...`运算符
+- 對像拷貝時，推薦使用`...`運算符來代替`Object.assign`, 獲取大對象的多個屬性時，也推薦使用`...`運算符
 
   ```javascript
-  // very bad, 因为line2的操作更改了original
+  // very bad, 因為line2的操作更改了original
   const original = { a: 1, b: 2 };
   const copy = Object.assign(original, { c: 3 }); 
-  // 将不需要的属性删除了
+  // 將不需要的屬性刪除了
   delete copy.a; 
   
   // bad
   const original = { a: 1, b: 2 };
   const copy = Object.assign({}, original, { c: 3 }); // copy => { a: 1, b: 2, c: 3 }
   
-  // good 使用 es6 扩展运算符 ...
+  // good 使用 es6 擴展運算符 ...
   const original = { a: 1, b: 2 };
-  // 浅拷贝
+  // 淺拷貝
   const copy = { ...original, c: 3 }; // copy => { a: 1, b: 2, c: 3 }
   
-  // rest 解构运算符
+  // rest 解構運算符
   const { a, ...noA } = copy; // noA => { b: 2, c: 3 }
   ```
 
@@ -212,9 +212,9 @@ if (true) {
 
 
 
-### 数组
+### 數組
 
-- 用扩展运算符做数组浅拷贝，类似上面的对象浅拷贝：
+- 用擴展運算符做數組淺拷貝，類似上面的對象淺拷貝：
 
   ```javascript
   // bad
@@ -230,7 +230,7 @@ if (true) {
   const itemsCopy = [...items];
   ```
 
-- 用 `...` 运算符而不是 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 来将一个可迭代的对象转换成数组:
+- 用 `...` 運算符而不是 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 來將一個可迭代的對象轉換成數組:
 
   ```javascript
   const foo = document.querySelectorAll('.foo');
@@ -244,7 +244,7 @@ if (true) {
 
   
 
-- 使用 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 而不是 `...` 运算符去做 map 遍历。 因为这样可以避免创建一个临时数组：
+- 使用 [`Array.from`](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from) 而不是 `...` 運算符去做 map 遍歷。 因為這樣可以避免創建一個臨時數組：
 
   ```javascript
   // bad
@@ -256,7 +256,7 @@ if (true) {
 
   
 
-- 如果一个数组有很多行，在数组的 `[` 后和 `]` 前断行 :
+- 如果一個數組有很多行，在數組的 `[` 後和 `]` 前斷行 :
 
   ```javascript
   
@@ -280,9 +280,9 @@ if (true) {
 
   
 
-### 解构
+### 解構
 
-- 用对象的解构赋值来获取和使用对象某个或多个属性值:
+- 用對象的解構賦值來獲取和使用對像某個或多個屬性值:
 
   ```javascript
   // bad
@@ -307,7 +307,7 @@ if (true) {
 
   
 
-- 数组解构:
+- 數組解構:
 
   ```javascript
   const arr = [1, 2, 3, 4];
@@ -323,7 +323,7 @@ if (true) {
 
   
 
-- 多个返回值用对象的解构，而不是数组解构:
+- 多個返回值用對象的解構，而不是數組解構:
 
   ```javascript
   // bad
@@ -331,14 +331,14 @@ if (true) {
     return [left, right, top, bottom];
   }
   
-  // 数组解构，必须明确前后顺序
+  // 數組解構，必須明確前後順序
   const [left, __, top] = processInput(input);
   
   // good
   function processInput(input) {
     return { left, right, top, bottom };
   }
-  // 只需要关注值，而不用关注顺序
+  // 只需要關注值，而不用關注順序
   const { left, top } = processInput(input);
   ```
 
@@ -348,7 +348,7 @@ if (true) {
 
 ### 字符串
 
-- 当需要动态生成字符串时，使用模板字符串而不是字符串拼接：
+- 當需要動態生成字符串時，使用模板字符串而不是字符串拼接：
 
   ```javascript
   // bad
@@ -362,7 +362,7 @@ if (true) {
   }
   
   
-  // good 可读性比上面更强
+  // good 可讀性比上面更強
   function sayHi(name) {
     return `How are you, ${name}?`;
   }
@@ -370,14 +370,14 @@ if (true) {
 
   
 
-- 永远不要使用 `eval()`，该方法有太多漏洞。
+- 永遠不要使用 `eval()`，該方法有太多漏洞。
 
 
-### 变量
+### 變量
 
--  不要使用链式变量赋值
+-  不要使用鏈式變量賦值
 
-> 因为会产生隐式的全局变量
+> 因為會產生隱式的全局變量
 
 ```javascript
 // bad
@@ -390,7 +390,7 @@ if (true) {
 }());
 
 console.log(a); // throws ReferenceError
-// 在块的外层也访问到了，代表这是一个全局变量。
+// 在塊的外層也訪問到了，代表這是一個全局變量。
 console.log(b); // 1 
 console.log(c); // 1
 
@@ -410,9 +410,9 @@ console.log(c); // throws ReferenceError
 
 
 
-- 不要使用一元自增自减运算符（`++`， `--`）
+- 不要使用一元自增自減運算符（`++`， `--`）
 
-  > 根据 eslint 文档，一元增量和减量语句受到自动分号插入的影响，并且可能会导致应用程序中的值递增或递减的静默错误。 使用 `num + = 1` 而不是 `num ++` 或 `num ++` 语句也是含义清晰的。
+  > 根據 eslint 文檔，一元增量和減量語句受到自動分號插入的影響，並且可能會導致應用程序中的值遞增或遞減的靜默錯誤。 使用 `num + = 1` 而不是 `num ++` 或 `num ++` 語句也是含義清晰的。
 
 ```javascript
   // bad
@@ -445,9 +445,9 @@ console.log(c); // throws ReferenceError
 ```
 
 
-### 属性
+### 屬性
 
-- 访问属性时使用点符号
+- 訪問屬性時使用點符號
 
 ```javascript
 const luke = {
@@ -462,7 +462,7 @@ const isJedi = luke['jedi'];
 const isJedi = luke.jedi;
 ```
 
-- 根据表达式访问属性时使用`[]`
+- 根據表達式訪問屬性時使用`[]`
 
 ```javascript
 const luke = {
@@ -479,22 +479,22 @@ const isJedi = getProp('je'+'di');
 
 
 
-### 测试
+### 測試
 
-- 无论用哪个测试框架，都需要写测试。
-- 尽量去写很多小而美的函数，减少突变的发生
-- 小心 stub 和 mock —— 这会让你的测试变得容易出现问题。
-- 100% 测试覆盖率是我们努力的目标，即便实际上很少达到。
-- 每当你修了一个 bug， 都要尽量写一个回归测试。 如果一个 bug 修复了，没有回归测试，很可能以后会再次出问题。
-
-
+- 無論用哪個測試框架，都需要寫測試。
+- 盡量去寫很多小而美的函數，減少突變的發生
+- 小心 stub 和 mock —— 這會讓你的測試變得容易出現問題。
+- 100% 測試覆蓋率是我們努力的目標，即便實際上很少達到。
+- 每當你修了一個 bug， 都要盡量寫一個回歸測試。 如果一個 bug 修復了，沒有回歸測試，很可能以後會再次出問題。
 
 
-## 公共约束
 
-### 注释
 
-- 多行注释用 `/** ... */`
+## 公共約束
+
+### 註釋
+
+- 多行註釋用 `/** ... */`
 
 ```javascript
 // bad
@@ -523,7 +523,7 @@ function make(tag) {
 }
 ```
 
-- 单行注释用 `//`
+- 單行註釋用 `//`
 
 ```javascript
 // bad
@@ -561,11 +561,11 @@ function getType() {
 }
 ```
 
-- 用 `// FIXME:` 给问题注释,用 `// TODO:` 去注释待办
+- 用 `// FIXME:` 給問題註釋,用 `// TODO:` 去註釋待辦
 
-### 分号
+### 分號
 
-> 为什么？当 JavaScript 遇到没有分号结尾的一行，它会执行 [自动插入分号](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) 这一规则来决定行末是否加分号。如果 JavaScript 在你的断行里错误的插入了分号，就会出现一些古怪的行为。显式配置代码检查去检查没有带分号的地方可以帮助你防止这种错误。
+> 為什麼？當 JavaScript 遇到沒有分號結尾的一行，它會執行 [自動插入分號](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion) 這一規則來決定行末是否加分號。如果 JavaScript 在你的斷行裡錯誤的插入了分號，就會出現一些古怪的行為。顯式配置代碼檢查去檢查沒有帶分號的地方可以幫助你防止這種錯誤。
 
 ```javascript
 // bad - raises exception
@@ -574,7 +574,7 @@ const leia = {}
 [luke, leia].forEach((jedi) => jedi.father = 'vader')
 
 // bad - raises exception
-const reaction = "No! That’s impossible!"
+const reaction = "No! That』s impossible!"
 (async function meanwhileOnTheFalcon() {
   // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
   // ...
@@ -594,7 +594,7 @@ const leia = {};
 });
 
 // good
-const reaction = "No! That’s impossible!";
+const reaction = "No! That』s impossible!";
 (async function meanwhileOnTheFalcon() {
   // handle `leia`, `lando`, `chewie`, `r2`, `c3p0`
   // ...
@@ -607,9 +607,9 @@ function foo() {
 ```
 
 
-### 命名规范
+### 命名規範
 
-- `export default` 导出模块A，则这个文件名也叫 `A.*`， `import` 时候的参数也叫 `A` :
+- `export default` 導出模塊A，則這個文件名也叫 `A.*`， `import` 時候的參數也叫 `A` :
 
 ```javascript
 // file 1 contents
@@ -644,7 +644,7 @@ import insideDirectory from './insideDirectory'; // camelCase export/import/dire
 // ^ supports both insideDirectory.js and insideDirectory/index.js
 ```
 
-- 当你`export default`一个函数时，函数名用小驼峰，文件名和函数名一致, export 一个结构体/类/单例/函数库/对象 时用大驼峰。
+- 當你`export default`一個函數時，函數名用小駝峰，文件名和函數名一致, export 一個結構體/類/單例/函數庫/對像 時用大駝峰。
 
 ```javascript
 function makeStyleGuide() {
@@ -664,9 +664,9 @@ export default AirbnbStyleGuide;
 ```
 
 
-### 标准库
+### 標準庫
 
-> [标准库](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)中包含一些由于历史原因遗留的工具类
+> [標準庫](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects)中包含一些由於歷史原因遺留的工具類
 
 - 用 `Number.isNaN` 代替全局的 `isNaN`:
 
@@ -692,13 +692,13 @@ Number.isFinite(parseInt('2e3', 10)); // true
 ```
 
 
-## 类与函数
+## 類與函數
 
-### 函数
+### 函數
 
-- 使用命名函数表达式而不是函数声明
+- 使用命名函數表達式而不是函數聲明
 
-  > 为什么？这是因为函数声明会发生提升，这意味着在一个文件里函数很容易在其被定义之前就被引用了。这样伤害了代码可读性和可维护性。如果你发现一个函数又大又复杂，且这个函数妨碍了这个文件其他部分的理解性，你应当单独把这个函数提取成一个单独的模块。不管这个名字是不是由一个确定的变量推断出来的，别忘了给表达式清晰的命名（这在现代浏览器和类似 babel 编译器中很常见）。这消除了由匿名函数在错误调用栈产生的所有假设。 ([讨论](https://github.com/airbnb/javascript/issues/794))
+  > 為什麼？這是因為函數聲明會發生提升，這意味著在一個文件裡函數很容易在其被定義之前就被引用了。這樣傷害了代碼可讀性和可維護性。如果你發現一個函數又大又複雜，且這個函數妨礙了這個文件其他部分的理解性，你應當單獨把這個函數提取成一個單獨的模塊。不管這個名字是不是由一個確定的變量推斷出來的，別忘了給表達式清晰的命名（這在現代瀏覽器和類似 babel 編譯器中很常見）。這消除了由匿名函數在錯誤調用棧產生的所有假設。 ([討論](https://github.com/airbnb/javascript/issues/794))
 
   ```javascript
   // bad
@@ -713,7 +713,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
   
   // good
   // lexical name distinguished from the variable-referenced invocation(s)
-  // 函数表达式名和声明的函数名是不一样的
+  // 函數表達式名和聲明的函數名是不一樣的
   const short = function longUniqueMoreDescriptiveLexicalFoo() {
     // ...
   };
@@ -721,9 +721,9 @@ Number.isFinite(parseInt('2e3', 10)); // true
 
   
 
-- 把立即执行函数包裹在圆括号里:
+- 把立即執行函數包裹在圓括號裡:
 
-  > 立即执行函数：Immediately Invoked Function expression = IIFE。 为什么？因为这样使代码读起来更清晰（译者注：我咋不觉得）。 另外，在模块化世界里，你几乎用不着 IIFE。
+  > 立即執行函數：Immediately Invoked Function expression = IIFE。 為什麼？因為這樣使代碼讀起來更清晰（譯者註：我咋不覺得）。 另外，在模塊化世界裡，你幾乎用不著 IIFE。
 
   ```javascript
   // immediately-invoked function expression (IIFE)
@@ -732,7 +732,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
   }() );
   ```
 
-- 不要用 `arguments` 命名参数。他的优先级高于每个函数作用域自带的 `arguments` 对象，这会导致函数自带的 `arguments` 值被覆盖:
+- 不要用 `arguments` 命名參數。他的優先級高於每個函數作用域自帶的 `arguments` 對象，這會導致函數自帶的 `arguments` 值被覆蓋:
 
   ```javascript
   // bad
@@ -746,13 +746,13 @@ Number.isFinite(parseInt('2e3', 10)); // true
   }
   ```
 
-- 用默认参数语法而不是在函数里对参数重新赋值
+- 用默認參數語法而不是在函數里對參數重新賦值
 
   ```javascript
   // really bad
   function handleThings(opts) {
-    // 如果 opts 的值为 false, 它会被赋值为 {}
-    // 虽然你想这么写，但是这个会带来一些微妙的 bug。
+    // 如果 opts 的值為 false, 它會被賦值為 {}
+    // 雖然你想這麼寫，但是這個會帶來一些微妙的 bug。
     opts = opts || {};
     // ...
   }
@@ -771,7 +771,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
   }
   ```
 
-- 把默认参数赋值放在最后面
+- 把默認參數賦值放在最後面
 
   ```javascript
   // bad
@@ -785,9 +785,9 @@ Number.isFinite(parseInt('2e3', 10)); // true
   }
   ```
 
-- 不要修改参数，也不要重新对函数参数赋值：
+- 不要修改參數，也不要重新對函數參數賦值：
 
-  > 容易导致bug，另外重新对参数赋值也会导致优化问题。
+  > 容易導致bug，另外重新對參數賦值也會導致優化問題。
 
   ```javascript
   // bad
@@ -816,11 +816,11 @@ Number.isFinite(parseInt('2e3', 10)); // true
 
 
 
-### 箭头函数
+### 箭頭函數
 
-- 当需要使用箭头函数的时候，使用它，但是不要滥用
+- 當需要使用箭頭函數的時候，使用它，但是不要濫用
 
-  > 当函数逻辑复杂时，不推荐使用箭头函数，而是单独抽出来放在一个函数里。
+  > 當函數邏輯複雜時，不推薦使用箭頭函數，而是單獨抽出來放在一個函數里。
 
   ```javascript
   // bad
@@ -836,7 +836,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
   });
   ```
 
-- 避免箭头函数与比较操作符混淆
+- 避免箭頭函數與比較操作符混淆
 
   ```javascript
   // bad
@@ -857,9 +857,9 @@ Number.isFinite(parseInt('2e3', 10)); // true
 
   
 
-### 类与构造函数
+### 類與構造函數
 
-- 使用`class` 语法。避免直接操作 `prototype`
+- 使用`class` 語法。避免直接操作 `prototype`
 
   ```javascript
   // bad
@@ -884,9 +884,9 @@ Number.isFinite(parseInt('2e3', 10)); // true
     }
   }
 
-- 用 `extends` 实现继承:
+- 用 `extends` 實現繼承:
 
-  > 为什么？它是一种内置的方法来继承原型功能而不破坏 `instanceof`
+  > 為什麼？它是一種內置的方法來繼承原型功能而不破壞 `instanceof`
 
   ```javascript
   // bad
@@ -909,7 +909,7 @@ Number.isFinite(parseInt('2e3', 10)); // true
 
   
 
-- 方法可以返回 `this` 来实现链式调用
+- 方法可以返回 `this` 來實現鏈式調用
 
 ```javascript
 // bad
@@ -947,7 +947,7 @@ luke.jump()
 
 
 
-- 自定义 `toString()` 方法是可以的，但需要保证它可以正常工作
+- 自定義 `toString()` 方法是可以的，但需要保證它可以正常工作
 
 ```javascript
 class Jedi {
@@ -965,7 +965,7 @@ class Jedi {
 }
 ```
 
-- 如果没有特别定义，类有默认的构造方法。一个空的构造函数或只是代表父类的构造函数是不需要写的。
+- 如果沒有特別定義，類有默認的構造方法。一個空的構造函數或只是代表父類的構造函數是不需要寫的。
 
 ```javascript
 // bad
@@ -979,7 +979,7 @@ class Jedi {
 
 // bad
 class Rey extends Jedi {
-  // 这种构造函数是不需要写的
+  // 這種構造函數是不需要寫的
   constructor(...args) {
     super(...args);
   }
@@ -996,9 +996,9 @@ class Rey extends Jedi {
 
 
 
-### 模块
+### 模塊
 
-- 使用（`import`/`export`）模块
+- 使用（`import`/`export`）模塊
 
 ```javascript
 // bad
@@ -1014,9 +1014,9 @@ import { es6 } from './AirbnbStyleGuide';
 export default es6;
 ```
 
-- 不要导出可变的东西:
+- 不要導出可變的東西:
 
-> 变化通常都是需要避免，特别是当你要输出可变的绑定。虽然在某些场景下可能需要这种技术，但总的来说应该导出常量。
+> 變化通常都是需要避免，特別是當你要輸出可變的綁定。雖然在某些場景下可能需要這種技術，但總的來說應該導出常量。
 
 ```javascript
 // bad
@@ -1028,7 +1028,7 @@ const foo = 3;
 export { foo }
 ```
 
-- import JavaScript文件不用包含扩展名
+- import JavaScript文件不用包含擴展名
 
 ```javascript
 // bad
@@ -1044,11 +1044,11 @@ import baz from './baz';
 
 
 
-### 迭代器与生成器
+### 迭代器與生成器
 
-- 不要用迭代器。使用 JavaScript 高级函数代替 `for-in`、 `for-of`
+- 不要用迭代器。使用 JavaScript 高級函數代替 `for-in`、 `for-of`
 
-  > 用数组的这些迭代方法： `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... , 对象的这些方法 `Object.keys()` / `Object.values()` / `Object.entries()` 得到一个数组，就能去遍历对象。
+  > 用數組的這些迭代方法： `map()` / `every()` / `filter()` / `find()` / `findIndex()` / `reduce()` / `some()` / ... , 對象的這些方法 `Object.keys()` / `Object.values()` / `Object.entries()` 得到一個數組，就能去遍歷對象。
 
   ```javascript
   const numbers = [1, 2, 3, 4, 5];
@@ -1088,29 +1088,29 @@ import baz from './baz';
 
 ### 提升
 
-- `var` 声明会被提前到离他最近的作用域的最前面，但是它的赋值语句并没有提前。`const` 和 `let` 被赋予了新的概念 [暂时性死区 (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)。 重要的是要知道为什么 [typeof 不再安全](https://web.archive.org/web/20200121061528/http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)。
+- `var` 聲明會被提前到離他最近的作用域的最前面，但是它的賦值語句並沒有提前。`const` 和 `let` 被賦予了新的概念 [暫時性死區 (TDZ)](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let#temporal_dead_zone_tdz)。 重要的是要知道為什麼 [typeof 不再安全](https://web.archive.org/web/20200121061528/http://es-discourse.com/t/why-typeof-is-no-longer-safe/15)。
 
 ```javascript
-// 我们知道这个不会工作，假设没有定义全局的 notDefined
+// 我們知道這個不會工作，假設沒有定義全局的 notDefined
 function example() {
   console.log(notDefined); // => throws a ReferenceError
 }
 
-// 在你引用的地方之后声明一个变量，他会正常输出是因为变量提升。
-// 注意： declaredButNotAssigned 的值 true 没有被提升。
+// 在你引用的地方之後聲明一個變量，他會正常輸出是因為變量提升。
+// 注意： declaredButNotAssigned 的值 true 沒有被提升。
 function example() {
   console.log(declaredButNotAssigned); // => undefined
   var declaredButNotAssigned = true;
 }
 
-// 可以写成如下例子， 二者意义相同。
+// 可以寫成如下例子， 二者意義相同。
 function example() {
   let declaredButNotAssigned;
   console.log(declaredButNotAssigned); // => undefined
   declaredButNotAssigned = true;
 }
 
-// 用 const，let就不一样了。
+// 用 const，let就不一樣了。
 function example() {
   console.log(declaredButNotAssigned); // => throws a ReferenceError
   console.log(typeof declaredButNotAssigned); // => throws a ReferenceError
@@ -1118,7 +1118,7 @@ function example() {
 }
 ```
 
-- 已命名函数表达式提升他的变量名，不是函数名或函数体
+- 已命名函數表達式提升他的變量名，不是函數名或函數體
 
 ```javascript
 function example() {
@@ -1133,7 +1133,7 @@ function example() {
   };
 }
 
-// 函数名和变量名一样是也如此。
+// 函數名和變量名一樣是也如此。
 function example() {
   console.log(named); // => undefined
 
@@ -1145,11 +1145,11 @@ function example() {
 }
 ```
 
-### 比较运算符与相等
+### 比較運算符與相等
 
-- 用 `===` 和 `!==` 严格比较而不是 `==` 和 `!=`
+- 用 `===` 和 `!==` 嚴格比較而不是 `==` 和 `!=`
 
-- 条件语句，例如if语句使用coercion与tobooleant抽象方法评估它们的表达式，始终遵循这些简单的规则：
+- 條件語句，例如if語句使用coercion與tobooleant抽像方法評估它們的表達式，始終遵循這些簡單的規則：
   - **Objects** evaluate to **true**
   - **Undefined** evaluates to **false**
   - **Null** evaluates to **false**
@@ -1164,7 +1164,7 @@ if ([0] && []) {
 }
 ```
 
-- 三元表达式不应该嵌套，尽量保持单行表达式
+- 三元表達式不應該嵌套，盡量保持單行表達式
 
 ```javascript
 // bad
@@ -1187,7 +1187,7 @@ const foo = maybe1 > maybe2 ? 'bar' : maybeNull;
 
 ### 事件
 
-- 当把数据载荷传递给事件时（例如是 DOM 还是像 Backbone 这样有很多属性的事件）。这使得后续的贡献者（程序员）向这个事件添加更多的数据时不用去找或者更新每个处理器。
+- 當把數據載荷傳遞給事件時（例如是 DOM 還是像 Backbone 這樣有很多屬性的事件）。這使得後續的貢獻者（程序員）向這個事件添加更多的數據時不用去找或者更新每個處理器。
 
 ```javascript
 // bad
@@ -1201,7 +1201,7 @@ $(this).on('listingUpdated', (e, listingID) => {
 ```
 
 
-### 类型转换与强制转换
+### 類型轉換與強制轉換
 
 - 字符串
 
@@ -1215,13 +1215,13 @@ const totalScore = new String(this.reviewScore); // typeof totalScore is "object
 const totalScore = this.reviewScore + ''; 
 
 // bad
-const totalScore = this.reviewScore.toString(); // 不保证返回 string
+const totalScore = this.reviewScore.toString(); // 不保證返回 string
 
 // good
 const totalScore = String(this.reviewScore);
 ```
 
-- 数字: 用 `Number` 做类型转换，`parseInt` 转换 `string` 应总是带上进制位
+- 數字: 用 `Number` 做類型轉換，`parseInt` 轉換 `string` 應總是帶上進制位
 
 ```javascript
 const inputValue = '4';
@@ -1245,9 +1245,9 @@ const val = Number(inputValue);
 const val = parseInt(inputValue, 10);
 ```
 
-- 移位运算要小心
+- 移位運算要小心
 
-  > 移位运算对大于 32 位的整数会导致意外行为。[Discussion](https://github.com/airbnb/javascript/issues/109). 最大的 32 位整数是 2,147,483,647:
+  > 移位運算對大於 32 位的整數會導致意外行為。[Discussion](https://github.com/airbnb/javascript/issues/109). 最大的 32 位整數是 2,147,483,647:
 
 ```javascript
 2147483647 >> 0 //=> 2147483647
@@ -1255,13 +1255,13 @@ const val = parseInt(inputValue, 10);
 2147483649 >> 0 //=> -2147483647
 ```
 
-## 推荐资源
-- 网站：
-  - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/): 不管你是仅仅开始入门、学过一点基础或者是个网站开发老手，你都能在这里找到有用的资源。
-  - [JS周刊](https://javascriptweekly.com/) : 你可以在这里，接收到JS社区里最新的动态，其他开发者编写的优秀工具，阅读优秀的文章。
-  - [印记中文](https://docschina.org/) : JS及其前端领域的文档集合。
+## 推薦資源
+- 網站：
+  - [MDN](https://developer.mozilla.org/zh-CN/docs/Web/): 不管你是僅僅開始入門、學過一點基礎或者是個網站開發老手，你都能在這裡找到有用的資源。
+  - [JS週刊](https://javascriptweekly.com/) : 你可以在這裡，接收到JS社區裡最新的動態，其他開發者編寫的優秀工具，閱讀優秀的文章。
+  - [印記中文](https://docschina.org/) : JS及其前端領域的文檔集合。
 
-- 书籍(为了尊重作者的版权，下列书籍仅开源书籍提供链接)：
-  - JavaScript权威指南（原书第7版）
+- 書籍(為了尊重作者的版權，下列書籍僅開源書籍提供鏈接)：
+  - JavaScript權威指南（原書第7版）
   - [你不知道的JS](https://github.com/getify/You-Dont-Know-JS)
   - [Eloquent JavaScript](https://eloquentjavascript.net/)
